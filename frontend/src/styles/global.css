@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-void:    #080810;
+  --bg-deep:    #0d0d1a;
+  --bg-surface: #111122;
+  --bg-raised:  #1a1a2e;
+  --border:     #2d3748;
+  --text-primary: #e8e8f0;
+  --text-secondary: #b0b8c8;
+  --text-muted: #4a5568;
+  --accent-blue: #4fc3f7;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────────── */
+
+.app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  background: var(--bg-deep);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+}
+
+.main-canvas {
+  flex: 1;
+  position: relative;
+  background: var(--bg-void);
+}
+
+/* ── Sidebar internals ───────────────────────────────────────────────────────── */
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sidebar-logo:hover { background: var(--bg-raised); }
+
+.logo-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  letter-spacing: 0.05em;
+}
+
+.logo-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.sidebar-section {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+/* ── History ─────────────────────────────────────────────────────────────────── */
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.history-item {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 10px;
+  text-align: left;
+  transition: all 0.15s;
+  width: 100%;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.history-item:hover {
+  background: var(--bg-raised);
+  border-color: var(--border);
+}
+
+.history-title {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.history-meta {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Landing placeholder ─────────────────────────────────────────────────────── */
+
+.landing-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.landing-text {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  line-height: 1.8;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── React Flow overrides ────────────────────────────────────────────────────── */
+
+.react-flow__controls-button {
+  background: var(--bg-raised) !important;
+  border-color: var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.react-flow__edge-path {
+  stroke-dasharray: 0;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────────── */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── KaTeX dark theme fixes ──────────────────────────────────────────────────── */
+
+.katex { color: inherit; }
+.katex-display { overflow-x: auto; overflow-y: hidden; }

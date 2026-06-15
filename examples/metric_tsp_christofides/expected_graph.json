@@ -1,0 +1,18 @@
+{
+  "concepts": [
+    { "id": "def_metric_tsp", "name": "Metric TSP", "type": "DEFINITION" },
+    { "id": "def_minimum_spanning_tree", "name": "Minimum Spanning Tree", "type": "DEFINITION" },
+    { "id": "def_odd_degree_vertices", "name": "Odd Degree Vertices", "type": "DEFINITION" },
+    { "id": "def_minimum_weight_perfect_matching", "name": "Minimum Weight Perfect Matching", "type": "DEFINITION" },
+    { "id": "lem_parity_correction", "name": "Parity Correction", "type": "LEMMA" },
+    { "id": "thm_christofides_approximation_sketch", "name": "Christofides Approximation Sketch", "type": "THEOREM" }
+  ],
+  "dependencies": [
+    { "from": "lem_parity_correction", "to": "def_odd_degree_vertices", "reason": "Parity correction acts on odd-degree vertices." },
+    { "from": "lem_parity_correction", "to": "def_minimum_weight_perfect_matching", "reason": "The correction adds a perfect matching." },
+    { "from": "thm_christofides_approximation_sketch", "to": "def_metric_tsp", "reason": "The theorem is an approximation for metric TSP." },
+    { "from": "thm_christofides_approximation_sketch", "to": "def_minimum_spanning_tree", "reason": "The construction starts from an MST." },
+    { "from": "thm_christofides_approximation_sketch", "to": "def_minimum_weight_perfect_matching", "reason": "The construction uses a minimum weight perfect matching." },
+    { "from": "thm_christofides_approximation_sketch", "to": "lem_parity_correction", "reason": "The matching is used to make degrees even before an Euler tour." }
+  ]
+}

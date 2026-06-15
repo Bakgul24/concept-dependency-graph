@@ -1,0 +1,20 @@
+{
+  "concepts": [
+    { "id": "def_matching", "name": "Matching", "type": "DEFINITION" },
+    { "id": "def_matched_vertex", "name": "Matched Vertex", "type": "DEFINITION" },
+    { "id": "def_alternating_path", "name": "Alternating Path", "type": "DEFINITION" },
+    { "id": "def_augmenting_path", "name": "Augmenting Path", "type": "DEFINITION" },
+    { "id": "lem_augmentation", "name": "Augmentation Lemma", "type": "LEMMA" },
+    { "id": "thm_berge", "name": "Berge's Theorem", "type": "THEOREM" }
+  ],
+  "dependencies": [
+    { "from": "def_matched_vertex", "to": "def_matching", "reason": "Matched vertices are defined relative to a matching." },
+    { "from": "def_alternating_path", "to": "def_matching", "reason": "Alternation is defined with respect to a matching." },
+    { "from": "def_augmenting_path", "to": "def_alternating_path", "reason": "An augmenting path is a special alternating path." },
+    { "from": "def_augmenting_path", "to": "def_matched_vertex", "reason": "Its endpoints must be unmatched." },
+    { "from": "lem_augmentation", "to": "def_matching", "reason": "The lemma modifies a matching." },
+    { "from": "lem_augmentation", "to": "def_augmenting_path", "reason": "The lemma assumes an augmenting path." },
+    { "from": "thm_berge", "to": "def_augmenting_path", "reason": "The theorem is stated in terms of augmenting paths." },
+    { "from": "thm_berge", "to": "lem_augmentation", "reason": "The forward improvement direction uses augmentation." }
+  ]
+}

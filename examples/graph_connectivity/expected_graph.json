@@ -1,0 +1,17 @@
+{
+  "concepts": [
+    { "id": "def_connected_graph", "name": "Connected Graph", "type": "DEFINITION" },
+    { "id": "def_bridge", "name": "Bridge", "type": "DEFINITION" },
+    { "id": "def_2_edge_connected", "name": "2-Edge-Connected Graph", "type": "DEFINITION" },
+    { "id": "lem_bridge_characterization", "name": "Bridge Characterization", "type": "LEMMA" },
+    { "id": "thm_cycle_characterization_2_edge_connectivity", "name": "Cycle Characterization of 2-Edge-Connectivity", "type": "THEOREM" }
+  ],
+  "dependencies": [
+    { "from": "def_2_edge_connected", "to": "def_connected_graph", "reason": "2-edge-connectivity includes connectedness." },
+    { "from": "def_2_edge_connected", "to": "def_bridge", "reason": "2-edge-connectivity excludes bridges." },
+    { "from": "lem_bridge_characterization", "to": "def_connected_graph", "reason": "The lemma assumes a connected graph." },
+    { "from": "lem_bridge_characterization", "to": "def_bridge", "reason": "The lemma characterizes bridges." },
+    { "from": "thm_cycle_characterization_2_edge_connectivity", "to": "def_2_edge_connected", "reason": "The theorem characterizes 2-edge-connected graphs." },
+    { "from": "thm_cycle_characterization_2_edge_connectivity", "to": "lem_bridge_characterization", "reason": "The theorem uses bridge characterization by cycles." }
+  ]
+}

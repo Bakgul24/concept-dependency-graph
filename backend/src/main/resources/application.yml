@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: math-dependency-mapper
+
+  # Neo4j Configuration
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: ${NEO4J_PASSWORD:password}
+
+  # Spring AI - OpenAI Configuration
+  ai:
+    openai:
+      api-key: ${api_key}
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.1
+          max-tokens: 4096
+
+  # File Upload
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# CORS
+app:
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:3000
+
+# Logging
+logging:
+  level:
+    com.mathdep: DEBUG
+    org.springframework.ai: INFO

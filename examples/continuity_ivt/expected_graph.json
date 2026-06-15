@@ -1,0 +1,15 @@
+{
+  "concepts": [
+    { "id": "def_continuity", "name": "Continuity", "type": "DEFINITION" },
+    { "id": "def_closed_interval", "name": "Closed Interval", "type": "DEFINITION" },
+    { "id": "lem_sign_change", "name": "Sign Change Lemma", "type": "LEMMA" },
+    { "id": "thm_intermediate_value", "name": "Intermediate Value Theorem", "type": "THEOREM" }
+  ],
+  "dependencies": [
+    { "from": "lem_sign_change", "to": "def_continuity", "reason": "The lemma assumes continuity on the interval." },
+    { "from": "lem_sign_change", "to": "def_closed_interval", "reason": "The lemma is stated on a closed interval." },
+    { "from": "thm_intermediate_value", "to": "def_continuity", "reason": "The theorem assumes continuity." },
+    { "from": "thm_intermediate_value", "to": "def_closed_interval", "reason": "The theorem is stated on [a,b]." },
+    { "from": "thm_intermediate_value", "to": "lem_sign_change", "reason": "The sign-change argument is a standard route to the IVT." }
+  ]
+}
